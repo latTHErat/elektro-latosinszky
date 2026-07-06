@@ -104,7 +104,7 @@ section{padding:80px 0}
 .svc-card h3{font-family:var(--font-display);font-size:clamp(22px,2vw,26px);letter-spacing:-.01em;font-weight:400;line-height:1.05;margin-bottom:8px}
 .svc-card p{font-size:15px;line-height:1.55}
 .svc-grid .svc-card{opacity:0;transform:translateY(22px);--rv-d:0ms;transition:opacity .65s var(--ease) var(--rv-d),transform .65s var(--ease) var(--rv-d),border-color .2s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease)}
-.svc-grid.is-in .svc-card{opacity:1;transform:none}
+.svc-grid.is-in .svc-card,.svc-grid .svc-card.on{opacity:1;transform:none}
 .svc-grid.is-in .svc-card:nth-child(1){--rv-d:0ms}
 .svc-grid.is-in .svc-card:nth-child(2){--rv-d:120ms}
 .svc-grid.is-in .svc-card:nth-child(3){--rv-d:240ms}
@@ -178,12 +178,6 @@ section{padding:80px 0}
 }
 @media (max-width:639px){
   .svc-grid{grid-template-columns:1fr}
-  .svc-grid.is-in .svc-card:nth-child(1){--rv-d:0ms}
-  .svc-grid.is-in .svc-card:nth-child(2){--rv-d:520ms}
-  .svc-grid.is-in .svc-card:nth-child(3){--rv-d:1040ms}
-  .svc-grid.is-in .svc-card:nth-child(4){--rv-d:1560ms}
-  .svc-grid.is-in .svc-card:nth-child(5){--rv-d:2080ms}
-  .svc-grid.is-in .svc-card:nth-child(6){--rv-d:2600ms}
   .svc-card{padding:18px 20px}
   .svc-card-inner{gap:16px}
   .svc-icon-box{width:76px;height:76px;border-radius:16px}
@@ -405,8 +399,31 @@ section{padding:80px 0}
 
   var svcGrid = document.querySelector('.svc-grid');
   if(svcGrid){
-    if(reduce){ svcGrid.classList.add('is-in'); }
-    else {
+    var svcCards = Array.prototype.slice.call(svcGrid.querySelectorAll('.svc-card'));
+    var mqMobile = window.matchMedia('(max-width:639px)');
+    if(reduce){
+      svcGrid.classList.add('is-in');
+      svcCards.forEach(function(c){ c.classList.add('on'); });
+    } else if(mqMobile.matches){
+      var sTick = false;
+      var updateSvc = function(){
+        var r = svcGrid.getBoundingClientRect();
+        var trigger = window.innerHeight * 0.72;
+        var progress = (trigger - r.top) / r.height;
+        progress = Math.max(0, Math.min(1, progress));
+        var h = progress * r.height;
+        svcCards.forEach(function(card){
+          card.classList.toggle('on', card.offsetTop + 22 <= h);
+        });
+      };
+      window.addEventListener('scroll', function(){
+        if(sTick) return;
+        sTick = true;
+        requestAnimationFrame(function(){ updateSvc(); sTick = false; });
+      }, {passive:true});
+      window.addEventListener('resize', updateSvc);
+      updateSvc();
+    } else {
       var sgIo = new IntersectionObserver(function(entries){
         entries.forEach(function(e){
           if(e.isIntersecting){
