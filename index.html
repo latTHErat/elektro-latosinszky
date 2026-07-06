@@ -89,7 +89,7 @@ section{padding:80px 0}
 .sec-head{margin-bottom:44px}
 .sec-head h2{font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);letter-spacing:-.01em;font-weight:400;line-height:1.05}
 .sec-head p{max-width:60ch;margin-top:12px}
-.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.svc-grid{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .svc-card{position:relative;display:flex;background:var(--surface);border:1px solid var(--border);border-left:3px solid transparent;border-radius:14px;padding:22px 24px;overflow:hidden;transition:border-color .2s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease)}
 .svc-card::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(250,204,21,.10),transparent 55%);opacity:0;transition:opacity .25s var(--ease);pointer-events:none}
 .svc-card:hover,.svc-card:focus-within{border-color:rgba(234,179,8,.45);border-left-color:var(--accent);box-shadow:0 14px 40px rgba(234,179,8,.14),0 0 0 1px rgba(234,179,8,.12);z-index:1}
@@ -405,6 +405,14 @@ section{padding:80px 0}
       svcGrid.classList.add('is-in');
       svcCards.forEach(function(c){ c.classList.add('on'); });
     } else if(mqMobile.matches){
+      var cardTops = [];
+      var measureSvc = function(){
+        var base = svcGrid.getBoundingClientRect().top;
+        cardTops = svcCards.map(function(card){
+          return card.getBoundingClientRect().top - base;
+        });
+      };
+      measureSvc();
       var sTick = false;
       var updateSvc = function(){
         var r = svcGrid.getBoundingClientRect();
@@ -412,8 +420,8 @@ section{padding:80px 0}
         var progress = (trigger - r.top) / r.height;
         progress = Math.max(0, Math.min(1, progress));
         var h = progress * r.height;
-        svcCards.forEach(function(card){
-          card.classList.toggle('on', card.offsetTop + 22 <= h);
+        svcCards.forEach(function(card, i){
+          card.classList.toggle('on', cardTops[i] + 22 <= h + 6);
         });
       };
       window.addEventListener('scroll', function(){
@@ -421,7 +429,7 @@ section{padding:80px 0}
         sTick = true;
         requestAnimationFrame(function(){ updateSvc(); sTick = false; });
       }, {passive:true});
-      window.addEventListener('resize', updateSvc);
+      window.addEventListener('resize', function(){ measureSvc(); updateSvc(); });
       updateSvc();
     } else {
       var sgIo = new IntersectionObserver(function(entries){
