@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "skills": {
+    "design-brief": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "skillPath": "skills/design-brief/SKILL.md",
+      "computedHash": "98dd3e62ac4b45962c30788d47324a351f0fc9617673b76f25dba448cf3bb959"
+    },
+    "frontend-design": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "1e9380363b2118bbcc608aa0f3d15eadce050b39f0c62cbd74cadb56fae7abea"
+    },
+    "web-design-guidelines": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-guidelines/SKILL.md",
+      "computedHash": "df2006a9f46ff0d4ea81bd42649a15d1b85440ed2ced14d9d0f3868a4ffad66d"
+    },
+    "web-prototype": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "sourceRef": "open-design-v0.13.0",
+      "skillPath": "design-templates/web-prototype/SKILL.md",
+      "installedManually": true
+    },
+    "elektro-landing": {
+      "source": "local",
+      "sourceType": "project",
+      "skillPath": ".agents/skills/elektro-landing/SKILL.md",
+      "installedManually": true
+    }
+  }
+}

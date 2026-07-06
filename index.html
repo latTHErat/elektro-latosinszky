@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elektro Latosinszky — Dein Elektriker in Potsdam-Babelsberg</title>
+<meta name="description" content="Elektro Latosinszky: Beleuchtung, E-Mobilität, Installation, Baustrom, Prüfung und Veranstaltungstechnik in Potsdam-Babelsberg.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F6F4;--surface:#FFFFFF;--surface-alt:#F2F2EF;--border:#E6E6E1;
+  --fg:#111113;--fg-secondary:#4A4A52;--muted:#6B6B76;
+  --accent:#EAB308;--accent-soft:#FACC15;--accent-text:#A16207;
+  --dark-bg:#18181B;--dark-card:#1E1E22;--dark-border:rgba(255,255,255,.08);
+  --dark-fg:#FAFAFA;--dark-muted:#A1A1AA;
+  --font-display:'Bebas Neue','Arial Narrow',sans-serif;
+  --font-body:'Inter',-apple-system,system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,0,0,1);--maxw:1200px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--bg);color:var(--fg-secondary);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{color:var(--fg)}
+img{display:block;max-width:100%}
+a{color:var(--fg)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(242,242,239,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-brand{display:flex;align-items:center;text-decoration:none}
+.nav-brand img{height:56px;width:auto;filter:brightness(0)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{text-decoration:none;font-size:15px;font-weight:500;color:var(--fg-secondary);position:relative;padding:4px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--fg);transition:width .15s var(--ease)}
+.nav-links a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:15px;font-weight:600;letter-spacing:.02em;border-radius:12px;padding:14px 24px;cursor:pointer;text-decoration:none;border:none;transition:transform .15s var(--ease),box-shadow .15s var(--ease),border-color .15s var(--ease),color .15s var(--ease)}
+.btn:active{transform:translateY(0);transition-duration:.1s}
+.btn-primary{background:var(--accent);color:var(--fg)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 0 4px rgba(234,179,8,.18),0 12px 30px rgba(234,179,8,.18)}
+.btn-ghost{background:transparent;color:var(--fg-secondary);border:1px solid var(--border)}
+.btn-ghost:hover{border-color:var(--accent-text);color:var(--accent-text)}
+.btn-sm{padding:10px 18px;font-size:14px}
+.dark-stage .btn-primary:hover{box-shadow:0 0 0 5px rgba(234,179,8,.25),0 12px 40px rgba(234,179,8,.40)}
+.sec-label{display:flex;align-items:center;gap:14px;font-family:var(--font-mono);font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:20px}
+.sec-label::after{content:"";flex:0 0 56px;height:1px;background:var(--border)}
+.dark-stage .sec-label{color:var(--accent-soft)}
+.dark-stage .sec-label::after{background:var(--dark-border)}
+section{padding:80px 0}
+/* Zeichenpapier-Muster für helle Flächen */
+.grid-paper{background-image:repeating-linear-gradient(0deg,rgba(17,17,19,.04) 0 1px,transparent 1px 72px),repeating-linear-gradient(90deg,rgba(17,17,19,.04) 0 1px,transparent 1px 72px)}
+/* Hero: vollflächiges Bild + Parallax */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;padding:0}
+.hero-bg{position:absolute;inset:-14% 0;z-index:0;will-change:transform}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(246,246,244,.96) 0%,rgba(246,246,244,.88) 34%,rgba(246,246,244,.55) 58%,rgba(234,179,8,.10) 100%)}
+.hero-content{position:relative;z-index:1;width:100%;padding-top:64px;padding-bottom:64px}
+.hero-copy{position:relative;max-width:640px}
+.hero-glow{position:absolute;top:-40px;left:-60px;width:420px;height:320px;background:radial-gradient(closest-side,rgba(234,179,8,.18),transparent 70%);pointer-events:none}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);margin-bottom:22px;position:relative}
+.eyebrow svg{width:16px;height:16px;stroke:currentColor}
+.hero h1{font-family:var(--font-display);font-size:clamp(48px,7vw,84px);line-height:1.0;letter-spacing:-.02em;font-weight:400;margin-bottom:20px;position:relative}
+.hero-sub{max-width:46ch;font-size:18px;margin-bottom:34px;position:relative}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;position:relative}
+.hero-caption{position:absolute;right:24px;bottom:18px;z-index:1;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-secondary);background:rgba(246,246,244,.72);backdrop-filter:blur(4px);padding:6px 12px;border-radius:8px}
+.services{background:var(--surface-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sec-head{margin-bottom:44px}
+.sec-head h2{font-family:var(--font-display);font-size:clamp(30px,3.2vw,44px);letter-spacing:-.01em;font-weight:400;line-height:1.05}
+.sec-head p{max-width:60ch;margin-top:12px}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.svc-card{position:relative;display:flex;background:var(--surface);border:1px solid var(--border);border-left:3px solid transparent;border-radius:14px;padding:22px 24px;overflow:hidden;transition:border-color .2s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease)}
+.svc-card::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(250,204,21,.10),transparent 55%);opacity:0;transition:opacity .25s var(--ease);pointer-events:none}
+.svc-card:hover,.svc-card:focus-within{border-color:rgba(234,179,8,.45);border-left-color:var(--accent);box-shadow:0 14px 40px rgba(234,179,8,.14),0 0 0 1px rgba(234,179,8,.12);z-index:1}
+.svc-card:hover::before,.svc-card:focus-within::before{opacity:1}
+.svc-card-inner{display:flex;align-items:center;gap:22px;width:100%}
+.svc-num{position:absolute;top:12px;right:16px;font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.08em;color:var(--accent-text);opacity:.55;transition:opacity .2s var(--ease),color .2s var(--ease)}
+.svc-card:hover .svc-num,.svc-card:focus-within .svc-num{opacity:1;color:var(--accent-text)}
+.svc-icon-box{flex-shrink:0;width:92px;height:92px;border-radius:18px;background:rgba(250,204,21,.16);display:flex;align-items:center;justify-content:center;color:var(--fg);box-shadow:0 8px 24px rgba(234,179,8,.10);transition:background .25s var(--ease),box-shadow .25s var(--ease),transform .25s var(--ease)}
+.svc-card:hover .svc-icon-box,.svc-card:focus-within .svc-icon-box{background:rgba(250,204,21,.28);box-shadow:0 0 0 5px rgba(234,179,8,.16),0 12px 32px rgba(234,179,8,.18);transform:scale(1.04)}
+.svc-icon-box svg{width:44px;height:44px}
+.svc-copy{flex:1;min-width:0}
+.svc-card h3{font-family:var(--font-display);font-size:clamp(22px,2vw,26px);letter-spacing:-.01em;font-weight:400;line-height:1.05;margin-bottom:8px}
+.svc-card p{font-size:15px;line-height:1.55}
+.svc-grid .svc-card{opacity:0;transform:translateY(22px);--rv-d:0ms;transition:opacity .45s var(--ease) var(--rv-d),transform .45s var(--ease) var(--rv-d),border-color .2s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease)}
+.svc-grid.is-in .svc-card{opacity:1;transform:none}
+.svc-grid.is-in .svc-card:nth-child(1){--rv-d:0ms}
+.svc-grid.is-in .svc-card:nth-child(2){--rv-d:75ms}
+.svc-grid.is-in .svc-card:nth-child(3){--rv-d:150ms}
+.svc-grid.is-in .svc-card:nth-child(4){--rv-d:225ms}
+.svc-grid.is-in .svc-card:nth-child(5){--rv-d:300ms}
+.svc-grid.is-in .svc-card:nth-child(6){--rv-d:375ms}
+.about-grid{display:grid;grid-template-columns:1fr .8fr;gap:64px;align-items:start}
+.about-lead{font-size:18px;color:var(--fg);font-weight:500;margin-bottom:18px;max-width:56ch}
+.about-text{max-width:62ch;margin-bottom:36px}
+.quote{margin-top:36px;padding:0;max-width:58ch;font-size:clamp(18px,1.7vw,20px);font-style:italic;line-height:1.6;color:var(--fg)}
+/* Timeline: Stromleitung mit wanderndem Funken */
+.timeline-wrap{position:relative;margin-top:16px}
+.timeline{list-style:none;padding-left:34px}
+.timeline-wrap::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--border);border-radius:1px}
+.tl-line{position:absolute;left:7px;top:6px;width:2px;height:0;background:var(--accent);border-radius:1px;box-shadow:0 0 10px rgba(234,179,8,.45);z-index:1}
+.tl-spark{position:absolute;left:8px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--accent-soft);box-shadow:0 0 14px 4px rgba(234,179,8,.55);transform:translate(-50%,-50%);opacity:0;pointer-events:none;z-index:2}
+.timeline li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:18px;padding:14px 0;font-size:15.5px;opacity:0;transform:translateX(-12px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.timeline li::before{content:"";position:absolute;left:-31px;top:22px;width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid var(--border);transition:border-color .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease)}
+.timeline li.on{opacity:1;transform:none}
+.timeline li.on::before{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 0 8px rgba(234,179,8,.5)}
+.timeline .yr{font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--accent-text);padding-top:2px}
+.about-visual img{border-radius:14px;border:1px solid var(--border);width:100%;max-width:420px}
+.about-visual figcaption{margin-top:12px;font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dark-stage{background:var(--dark-bg);color:var(--dark-muted)}
+.dark-stage h2,.dark-stage h3{color:var(--dark-fg)}
+.cta-banner{padding:88px 0;text-align:center}
+.cta-banner h2{font-family:var(--font-display);font-size:clamp(34px,4vw,56px);letter-spacing:-.01em;font-weight:400;line-height:1.05;margin-bottom:14px}
+.cta-banner p{max-width:52ch;margin:0 auto 34px}
+.cta-banner .btn-primary{font-size:16px;padding:16px 32px}
+.contact{background:var(--surface-alt);border-top:1px solid var(--dark-bg)}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+.form-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:32px}
+.field{margin-bottom:20px}
+.field label{display:block;font-size:14px;font-weight:500;color:var(--fg);margin-bottom:7px}
+.field input,.field textarea{width:100%;font-family:var(--font-body);font-size:15.5px;color:var(--fg);background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;outline:none;transition:border-color .15s var(--ease),box-shadow .15s var(--ease)}
+.field input:focus,.field textarea:focus{border-color:var(--accent-text);box-shadow:0 0 0 3px rgba(161,98,7,.14)}
+.field textarea{min-height:120px;resize:vertical}
+.field .hint{font-size:13px;color:var(--muted);margin-top:5px}
+.check{display:flex;gap:10px;align-items:flex-start;margin-bottom:24px}
+.check input{margin-top:4px;accent-color:var(--accent-text)}
+.check label{font-size:13.5px;color:var(--muted)}
+.contact-info h3{font-size:19px;font-weight:600;margin-bottom:18px}
+.info-list{list-style:none}
+.info-list li{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid var(--border);font-size:15.5px}
+.info-list li:last-child{border-bottom:none}
+.info-list svg{width:19px;height:19px;color:var(--muted);margin-top:3px}
+.info-list a{color:var(--fg);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.info-list a:hover{color:var(--accent-text)}
+.socials{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+.socials a{font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--fg-secondary);text-decoration:none;border:1px solid var(--border);border-radius:8px;padding:8px 14px;background:var(--surface);transition:border-color .15s var(--ease),color .15s var(--ease)}
+.socials a:hover{border-color:var(--accent-text);color:var(--accent-text)}
+.footer{background:var(--dark-bg);color:var(--dark-muted);padding:48px 0 36px}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center}
+.footer-logo{display:block;height:84px;aspect-ratio:1;background-color:var(--accent);-webkit-mask:url(assets/images/logo.png) no-repeat center/contain;mask:url(assets/images/logo.png) no-repeat center/contain}
+.footer-meta{font-size:13px;line-height:1.7;text-align:right}
+.footer-meta a{color:var(--dark-muted)}
+.footer-meta a:hover{color:var(--dark-fg)}
+.footer hr{border:none;border-top:1px solid var(--dark-border);margin:28px 0 20px}
+.footer-credit{font-size:12px;font-family:var(--font-mono);letter-spacing:.02em}
+.footer-credit a{color:var(--dark-muted)}
+.footer-legal{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:8px;font-size:13px}
+.footer-legal a{color:var(--dark-muted);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.footer-legal a:hover{color:var(--dark-fg)}
+.rv{opacity:0;transform:translateY(12px);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (max-width:1023px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid,.hero-grid{grid-template-columns:1fr;gap:40px}
+  section{padding:48px 0}.hero{padding:56px 0}.nav-links{display:none}
+}
+@media (max-width:639px){
+  .svc-grid{grid-template-columns:1fr}
+  .svc-card{padding:18px 20px}
+  .svc-card-inner{gap:16px}
+  .svc-icon-box{width:76px;height:76px;border-radius:16px}
+  .svc-icon-box svg{width:38px;height:38px}
+  section{padding:32px 0}body{font-size:16px}.footer-meta{text-align:left}
+  .hero{min-height:78vh}
+  .hero-bg::after{background:linear-gradient(180deg,rgba(246,246,244,.94) 0%,rgba(246,246,244,.82) 60%,rgba(246,246,244,.55) 100%)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.rv{transform:none;transition:opacity .3s ease}
+  .btn,.svc-icon-box{transition:none}.btn-primary:hover{transform:none}
+  .svc-card:hover .svc-icon-box,.svc-card:focus-within .svc-icon-box{transform:none}
+  .svc-grid .svc-card{opacity:1;transform:none;transition:border-color .2s var(--ease),box-shadow .25s var(--ease),background .2s var(--ease)}
+  .hero-bg{inset:0}
+  .timeline li{transform:none;transition:opacity .3s ease}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" data-od-id="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top" data-od-id="nav-brand">
+      <img src="assets/images/logo.png" alt="Elektro Latosinszky">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#ueber-mich">Über mich</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="#kontakt" data-od-id="nav-cta">Jetzt anfragen</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" data-od-id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="assets/images/hero-glienicker-bruecke.jpg" alt="">
+  </div>
+  <div class="wrap hero-content">
+    <div class="hero-copy">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <p class="eyebrow" data-od-id="hero-eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/></svg>
+        Elektro Latosinszky
+      </p>
+      <h1 data-od-id="hero-h1">Strom mit Stil.</h1>
+      <p class="hero-sub" data-od-id="hero-sub">Dein Elektriker in Potsdam-Babelsberg. Von der Steckdose bis zum Lichtkonzept – zuverlässig, kreativ, persönlich.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#kontakt" data-od-id="hero-cta">Jetzt anfragen</a>
+      </div>
+    </div>
+  </div>
+  <p class="hero-caption">Glienicker Brücke · Potsdam-Babelsberg</p>
+</section>
+
+<section class="services grid-paper" id="leistungen" data-od-id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-label">01 · Leistungen</p>
+      <h2>Vom Hausanschluss bis zum Lichtkonzept</h2>
+      <p>Sechs Bereiche, ein Anspruch: verlässliche Elektrotechnik mit persönlicher Betreuung.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card" tabindex="0" data-od-id="svc-beleuchtung">
+        <span class="svc-num">01</span>
+        <div class="svc-card-inner">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.7.55 1.1 1.35 1.1 2.2h5c0-.85.4-1.65 1.1-2.2A6 6 0 0 0 12 3z"/></svg></div>
+          <div class="svc-copy"><h3>Beleuchtung</h3><p>Individuelles und exklusives Lichtkonzept nach Ihrem Geschmack – für Garten, Küche oder Party.</p></div>
+        </div>
+      </article>
+      <article class="svc-card" tabindex="0" data-od-id="svc-emobilitaet">
+        <span class="svc-num">02</span>
+        <div class="svc-card-inner">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v10M3 18h14M15 10h2.5a2 2 0 0 1 2 2v3a1.5 1.5 0 0 0 3 0v-4l-2-2M8 18v-3h4v3"/></svg></div>
+          <div class="svc-copy"><h3>E-Mobilität</h3><p>Wallbox-Auswahl, Anschluss an Ihre Anlage und Anmeldung beim Netzbetreiber.</p></div>
+        </div>
+      </article>
+      <article class="svc-card" tabindex="0" data-od-id="svc-installation">
+        <span class="svc-num">03</span>
+        <div class="svc-card-inner">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="9.5" cy="12" r="1"/><circle cx="14.5" cy="12" r="1"/><path d="M12 20.5V23"/></svg></div>
+          <div class="svc-copy"><h3>Installation</h3><p>Elektroinstallationen aller Art in Alt- und Neubau – vom Hausanschlusskasten bis zur Steckdose.</p></div>
+        </div>
+      </article>
+      <article class="svc-card" tabindex="0" data-od-id="svc-baustrom">
+        <span class="svc-num">04</span>
+        <div class="svc-card-inner">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16" rx="1.5"/><path d="M9 8h6M9 12h6M12 15.5v1.5"/></svg></div>
+          <div class="svc-copy"><h3>Baustrom</h3><p>Berechnung, Anmeldung und Inbetriebnahme Ihres Baustromverteilers.</p></div>
+        </div>
+      </article>
+      <article class="svc-card" tabindex="0" data-od-id="svc-pruefung">
+        <span class="svc-num">05</span>
+        <div class="svc-card-inner">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+          <div class="svc-copy"><h3>Prüfung / Wartung</h3><p>Prüfung nach VDE 0100-600 bzw. VDE 0105-100. Reparaturen und Fehlerbeseitigungen.</p></div>
+        </div>
+      </article>
+      <article class="svc-card" tabindex="0" data-od-id="svc-veranstaltungen">
+        <span class="svc-num">06</span>
+        <div class="svc-card-inner">
+          <div class="svc-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3.5" width="10" height="8" rx="2"/><path d="M12 11.5V15M12 15l-5 5.5M12 15l5 5.5M4 7.5l3 1M20 7.5l-3 1"/></svg></div>
+          <div class="svc-copy"><h3>Veranstaltungen</h3><p>Professionelle Beleuchtungsplanung – basierend auf Erfahrung als Oberbeleuchter bei Film und Fernsehen.</p></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ueber-mich" class="grid-paper" data-od-id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-label">02 · Über mich</p>
+      <h2>Andreas Latosinszky</h2>
+    </div>
+    <div class="about-grid">
+      <div class="rv">
+        <p class="about-lead">Ihr Elektriker in Potsdam und Umgebung — seit über 30 Jahren mit Leidenschaft im Beruf.</p>
+        <p class="about-text">Nach Festanstellungen als Elektrotechniker beim ZDF und den Schott Glaswerken arbeitete ich als Oberbeleuchter bei Film und Fernsehen. Mit dem TREI-Zertifikat machte ich mich mit meinem eigenen Elektrobetrieb selbstständig.</p>
+        <div class="timeline-wrap" data-od-id="timeline">
+          <div class="tl-line" aria-hidden="true"></div>
+          <div class="tl-spark" aria-hidden="true"></div>
+          <ul class="timeline">
+          <li><span class="yr">1990</span><span>Ausbildung als Elektroinstallateur, Mainz</span></li>
+          <li><span class="yr">1992</span><span>Staatlich geprüfter Techniker, Mainz</span></li>
+          <li><span class="yr">→</span><span>Elektrotechniker beim ZDF und den Schott Glaswerken</span></li>
+          <li><span class="yr">→</span><span>Oberbeleuchter bei Film und Fernsehen</span></li>
+          <li><span class="yr">→</span><span>TREI-Zertifikat und Gründung des eigenen Elektrobetriebs</span></li>
+          </ul>
+        </div>
+        <blockquote class="quote rv" data-od-id="about-quote">«Als Einzelunternehmer bin ich zeitnah und individuell für Sie da – von der einzelnen Steckdose bis zum Großprojekt.»</blockquote>
+      </div>
+      <figure class="about-visual rv" data-od-id="about-photo">
+        <img src="assets/images/andreas-latosinszky.png" alt="Andreas Latosinszky" width="420">
+        <figcaption>Inh. Andreas Latosinszky</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="dark-stage cta-banner" data-od-id="cta-banner">
+  <div class="wrap">
+    <p class="sec-label rv" style="justify-content:center">03 · Ihr Projekt</p>
+    <h2 class="rv">Licht an für Ihr Vorhaben.</h2>
+    <p class="rv">Ob einzelne Steckdose oder Großprojekt – erzählen Sie mir, was Sie planen. Ich melde mich zeitnah zurück.</p>
+    <a class="btn btn-primary rv" href="#kontakt" data-od-id="cta-banner-btn">Jetzt anfragen</a>
+  </div>
+</section>
+
+<section class="contact grid-paper" id="kontakt" data-od-id="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="sec-label">04 · Kontakt</p>
+      <h2>Ich freue mich über Ihren Auftrag</h2>
+      <p>Hinterlassen Sie Ihre E-Mail oder Telefonnummer – ich melde mich so schnell wie möglich.</p>
+    </div>
+    <div class="contact-grid">
+      <form class="form-card rv" action="mailto:info@e-lato.de" method="post" enctype="text/plain" data-od-id="contact-form">
+        <div class="field"><label for="f-name">Name *</label><input id="f-name" name="name" type="text" required autocomplete="name"></div>
+        <div class="field"><label for="f-email">E-Mail *</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"><p class="hint">Optional – empfohlen für schnellen Rückruf.</p></div>
+        <div class="field"><label for="f-msg">Nachricht *</label><textarea id="f-msg" name="nachricht" required></textarea></div>
+        <div class="check"><input id="f-consent" type="checkbox" required><label for="f-consent">Ich bin damit einverstanden, dass diese Daten zum Zweck der Kontaktaufnahme gespeichert und verarbeitet werden. *</label></div>
+        <button class="btn btn-primary" type="submit">Nachricht senden</button>
+      </form>
+      <div class="contact-info rv" data-od-id="contact-info">
+        <h3>Direkt erreichen</h3>
+        <ul class="info-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><span><a href="tel:03317042791">0331-70427910</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span><a href="mailto:info@e-lato.de">info@e-lato.de</a></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Alt Nowawes 85<br>14482 Potsdam-Babelsberg</span></li>
+        </ul>
+        <div class="socials" data-od-id="socials">
+          <a href="https://www.instagram.com/elektro_lato" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.tiktok.com/@elektro_lato" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://www.linkedin.com/in/elektrolatosinszky" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.xing.com/profile/Andreas_Latosinszky" target="_blank" rel="noopener noreferrer">Xing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer" data-od-id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo" role="img" aria-label="Elektro Latosinszky"></span>
+      </div>
+      <div class="footer-meta">
+        Inh. Andreas Latosinszky · Alt Nowawes 85, 14482 Potsdam-Babelsberg<br>
+        <a href="tel:03317042791">0331-70427910</a> · <a href="mailto:info@e-lato.de">info@e-lato.de</a>
+      </div>
+    </div>
+    <hr>
+    <p class="footer-credit">© 2026 Elektro Latosinszky · Foto Glienicker Brücke: <a href="https://commons.wikimedia.org/wiki/File:Glienicker_Bruecke_Schloss_Babelsberg.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons, CC BY-SA 3.0</a></p>
+    <nav class="footer-legal" aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealed = new WeakSet();
+  var io = new IntersectionObserver(function(entries){
+    entries.filter(function(e){return e.isIntersecting && !revealed.has(e.target)}).forEach(function(e,i){
+      revealed.add(e.target);
+      if(!reduce) e.target.style.transitionDelay = (i * 60) + 'ms';
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  var svcGrid = document.querySelector('.svc-grid');
+  if(svcGrid){
+    if(reduce){ svcGrid.classList.add('is-in'); }
+    else {
+      var sgIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            svcGrid.classList.add('is-in');
+            sgIo.disconnect();
+          }
+        });
+      }, {threshold:0.1, rootMargin:'0px 0px -6% 0px'});
+      sgIo.observe(svcGrid);
+    }
+  }
+
+  // Hero-Parallax
+  var heroBg = document.querySelector('.hero-bg');
+  if(heroBg && !reduce){
+    var pTick = false;
+    window.addEventListener('scroll', function(){
+      if(pTick) return;
+      pTick = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY;
+        if(y < window.innerHeight * 1.3){
+          heroBg.style.transform = 'translateY(' + (y * 0.18) + 'px)';
+        }
+        pTick = false;
+      });
+    }, {passive:true});
+  }
+
+  // Timeline: Leitung + Funke folgen dem Scroll (beide Richtungen)
+  var tlWrap = document.querySelector('.timeline-wrap');
+  if(tlWrap){
+    var tlLine = tlWrap.querySelector('.tl-line');
+    var tlSpark = tlWrap.querySelector('.tl-spark');
+    var tlItems = Array.prototype.slice.call(tlWrap.querySelectorAll('.timeline li'));
+    if(reduce){
+      tlLine.style.height = 'calc(100% - 12px)';
+      tlSpark.style.display = 'none';
+      tlItems.forEach(function(li){ li.classList.add('on'); });
+    } else {
+      var tTick = false;
+      var updateTl = function(){
+        var r = tlWrap.getBoundingClientRect();
+        var trigger = window.innerHeight * 0.72;
+        var progress = (trigger - r.top) / r.height;
+        progress = Math.max(0, Math.min(1, progress));
+        var trackH = r.height - 12;
+        var h = progress * trackH;
+        tlLine.style.height = h + 'px';
+        tlSpark.style.top = (6 + h) + 'px';
+        tlSpark.style.opacity = (progress > 0.01 && progress < 0.99) ? 1 : 0;
+        tlItems.forEach(function(li){
+          li.classList.toggle('on', li.offsetTop + 22 <= h + 6);
+        });
+      };
+      window.addEventListener('scroll', function(){
+        if(tTick) return;
+        tTick = true;
+        requestAnimationFrame(function(){ updateTl(); tTick = false; });
+      }, {passive:true});
+      window.addEventListener('resize', updateTl);
+      updateTl();
+    }
+  }
+})();
+</script>
+</body>
+</html>
