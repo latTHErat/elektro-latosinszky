@@ -185,8 +185,8 @@ section{padding:80px 0}
   .svc-icon-box{width:76px;height:76px;border-radius:16px}
   .svc-icon-box svg{width:38px;height:38px}
   section{padding:32px 0}body{font-size:16px}.footer-meta{text-align:left}
-  .hero{min-height:calc(var(--vh, 1vh) * 100 - var(--nav-h, 68px));padding:0}
-  .hero-bg{inset:0;will-change:auto;transform:none!important}
+  .hero{min-height:78vh;padding:0}
+  .hero-bg{inset:-14% 0 -12% 0}
   .hero-content{padding-top:28px;padding-bottom:24px}
   .hero-bg::after{background:linear-gradient(180deg,rgba(246,246,244,.94) 0%,rgba(246,246,244,.82) 60%,rgba(246,246,244,.55) 100%)}
 }
@@ -389,15 +389,6 @@ section{padding:80px 0}
 
 <script>
 (function(){
-  var setViewport = function(){
-    document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
-    var nav = document.querySelector('.nav');
-    if(nav) document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
-  };
-  setViewport();
-  window.addEventListener('orientationchange', setViewport);
-  window.addEventListener('resize', setViewport);
-
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var revealed = new WeakSet();
   var io = new IntersectionObserver(function(entries){
@@ -457,11 +448,9 @@ section{padding:80px 0}
     }
   }
 
-  // Hero-Parallax (nur Desktop/Tablet — auf Mobile wirkt es mit inset:0 wie Zoomen)
+  // Hero-Parallax
   var heroBg = document.querySelector('.hero-bg');
-  var mqHeroParallax = window.matchMedia('(min-width:640px)');
-  if(heroBg && !mqHeroParallax.matches) heroBg.style.transform = '';
-  if(heroBg && !reduce && mqHeroParallax.matches){
+  if(heroBg && !reduce){
     var pTick = false;
     window.addEventListener('scroll', function(){
       if(pTick) return;
